@@ -38,7 +38,7 @@ public class Savetoxml : MonoBehaviour {
             antennaData antenna = antennaobject.GetComponent<antennaData>();
 
             writer.WriteStartElement("Antenna"); // <Antenna>
-            writer.WriteAttributeString("name", antennaobject.transform.name); // Adds name as parameters of antenna <Antenna>
+            writer.WriteAttributeString("name", antenna.name); // Adds name as parameters of antenna <Antenna>
             writer.WriteElementString("xpos", antennaobject.transform.position.x.ToString()); // Adds the x position
             writer.WriteElementString("ypos", antennaobject.transform.position.y.ToString()); // Adds the y position
             writer.WriteElementString("frequency", antenna.frequency.ToString()); // Adds the frequency

@@ -27,7 +27,7 @@ public class AppStates : MonoBehaviour {
             {
                 if (antennaItem.Name == "name")
                 {
-                    AntennaName = antennaItem.InnerText; // Possibly wrong, I checked what we got from it, and letters are good but they aren't in the antennas like we want them
+                    AntennaName = antennaItem.InnerText;
                 }
 
                 if (antennaItem.Name == "object")
@@ -41,7 +41,7 @@ public class AppStates : MonoBehaviour {
                     }
                 }
             }
-            createAntenna(xpos, ypos, frequency, power, name);
+            createAntenna(xpos, ypos, frequency, power, AntennaName);
         }  
     }
 
