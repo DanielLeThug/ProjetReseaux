@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 public class reception : MonoBehaviour {
 
-	private Color defaultColor = new Color(255,255,255,0);
-	private List<GameObject> captedAntennas = new List<GameObject> ();
+    private List<Waves> waves = new List<Waves>();
 
-	private Color frequencyColor(int frequency) {
+    private Color frequencyColor(int frequency) {
 		Color color = Color.white;
 		switch (frequency) {
 		case 1:
@@ -36,24 +35,51 @@ public class reception : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collision) {
-		captedAntennas.Add (collision.gameObject);
-	}
+        Waves wave = new Waves();
+        wave.antenna = collision.gameObject;
+
+        GameObject white = Instantiate(Resources.Load("white"), Vector2.right, Quaternion.identity) as GameObject;
+        Tools.resize(white, GetComponent<SpriteRenderer>().bounds.size);
+        white.transform.parent = gameObject.transform;
+        white.transform.localPosition = new Vector3(0, 0, -waves.Count - 1);
+
+        white.GetComponent<SpriteRenderer>().color = frequencyColor(wave.antenna.GetComponent<antennaData>().frequency);
+        wave.coloration = white;
+
+        waves.Add(wave);
+    }
 
 	void OnTriggerExit2D(Collider2D other) {
-		captedAntennas.Remove (other.gameObject);
-		if(captedAntennas.Count == 0)
-			GetComponent<SpriteRenderer> ().color = defaultColor;
-	}
+        for (int i = 0; i < waves.Count; i++)
+        {
+            if (waves[i].antenna == other.gameObject)
+            {
+                Destroy(waves[i].coloration);
+                waves.RemoveAt(i);
+                break;
+            }
+        }
+    }
 
 	void Start() {
-		GetComponent<SpriteRenderer> ().color = defaultColor;
 	}
 
 	void Update() {
-		if (captedAntennas.Count > 0) {
-			Color color = frequencyColor(captedAntennas[0].GetComponent<antennaData>().frequency);
-			color.a = powerAlpha (captedAntennas[0].transform.position, captedAntennas[0].GetComponent<CircleCollider2D> ().radius);
-			GetComponent<SpriteRenderer> ().color = color;
-		}
-	}
+        if (waves.Count > 0)
+        {
+            foreach (Waves wave in waves)
+            {
+                Color color = wave.coloration.GetComponent<SpriteRenderer>().color;
+                color.a = powerAlpha(wave.antenna.transform.position, wave.antenna.GetComponent<CircleCollider2D>().radius);
+                wave.coloration.GetComponent<SpriteRenderer>().color = color;
+            }
+
+        }
+    }
+}
+
+public struct Waves
+{
+    public GameObject antenna;
+    public GameObject coloration;
 }
