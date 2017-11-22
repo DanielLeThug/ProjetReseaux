@@ -67,4 +67,5 @@ public class Tools : MonoBehaviour {
 		Vector2 currentSize = go.GetComponent<SpriteRenderer> ().bounds.size;
 		go.transform.localScale = new Vector2 (newSize.x / currentSize.x, newSize.y / currentSize.y);
 	}
+
 }
