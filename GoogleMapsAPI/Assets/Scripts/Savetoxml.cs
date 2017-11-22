@@ -19,31 +19,33 @@ public class Savetoxml : MonoBehaviour {
 	}
 
     void OnClick() {
-        XmlDocument filename = new XmlDocument();
-        XmlWriterSettings settings = new XmlWriterSettings();
-        settings.Indent = true;
-        settings.NewLineOnAttributes = true;
-        XmlWriter writer = XmlWriter.Create("./Assets/Resources/AntennasOut.xml", settings);
+        XmlDocument filename = new XmlDocument(); // Idk why we need this one but we actually need it to save the writer inside it
+        XmlWriterSettings settings = new XmlWriterSettings(); // Creation of settings that will be needed to be bootiful
+        settings.Indent = true; // This is bootiful
+        settings.NewLineOnAttributes = true; // Same shit than before
+        XmlWriter writer = XmlWriter.Create("./Assets/Resources/AntennasOut.xml", settings); // This is creation of the XML file and its settings
         
 
         writer.WriteStartElement("Antennas"); // <Antennas>
 
-        // Fetch all gameobject with the tag "antenna" and puts it in an array tmp
+        // Fetches all gameobject with the tag "antenna" and puts it in an array tmp
         GameObject[] tmp = GameObject.FindGameObjectsWithTag("Antenna");
 
         // For each gameobject, creates an XML save in the XML file
         foreach(GameObject antennaobject in tmp)
         {
+            // Gathers data from the Unity components
             antennaData antenna = antennaobject.GetComponent<antennaData>();
-            writer.WriteStartElement("Antenna");
-            writer.WriteAttributeString("name", antenna.name); // <Antenna>
-            writer.WriteElementString("xpos", antennaobject.transform.position.x.ToString());
-            writer.WriteElementString("ypos", antennaobject.transform.position.y.ToString());
-            writer.WriteElementString("frequency", antenna.frequency.ToString());
-            writer.WriteElementString("power", antenna.power.ToString());
-            writer.WriteEndElement();
+
+            writer.WriteStartElement("Antenna"); // <Antenna>
+            writer.WriteAttributeString("name", antennaobject.transform.name); // Adds name as parameters of antenna <Antenna>
+            writer.WriteElementString("xpos", antennaobject.transform.position.x.ToString()); // Adds the x position
+            writer.WriteElementString("ypos", antennaobject.transform.position.y.ToString()); // Adds the y position
+            writer.WriteElementString("frequency", antenna.frequency.ToString()); // Adds the frequency
+            writer.WriteElementString("power", antenna.power.ToString()); // Adds the power
+            writer.WriteEndElement(); // </Antenna>
         }
-        writer.WriteEndElement();
-        filename.Save(writer);
+        writer.WriteEndElement(); // </Antennas>
+        filename.Save(writer); // Writes everything in the XML file
     }
 }
