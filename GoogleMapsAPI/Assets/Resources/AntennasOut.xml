@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Antennas>
+  <Antenna
+    name="Main Camera">
+    <xpos>0</xpos>
+    <ypos>0</ypos>
+    <frequency>1</frequency>
+    <power>24</power>
+  </Antenna>
+  <Antenna
+    name="Main Camera">
+    <xpos>3</xpos>
+    <ypos>3</ypos>
+    <frequency>2</frequency>
+    <power>15</power>
+  </Antenna>
+  <Antenna
+    name="Main Camera">
+    <xpos>-3</xpos>
+    <ypos>-3</ypos>
+    <frequency>3</frequency>
+    <power>9</power>
+  </Antenna>
+  <Antenna
+    name="Main Camera">
+    <xpos>3</xpos>
+    <ypos>-3</ypos>
+    <frequency>4</frequency>
+    <power>21</power>
+  </Antenna>
+  <Antenna
+    name="Main Camera">
+    <xpos>-3</xpos>
+    <ypos>3</ypos>
+    <frequency>5</frequency>
+    <power>12</power>
+  </Antenna>
+</Antennas>
