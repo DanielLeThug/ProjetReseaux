@@ -1,0 +1,43 @@
+<antennas>
+
+	<antenna>
+		<name>A</name>
+		<object name="xpos">0</object>
+		<object name="ypos">0</object>
+		<object name="frequency">1</object>
+		<object name="power">24</object>
+	</antenna>
+  
+	<antenna>
+		<name>B</name>
+		<object name="xpos">3</object>
+		<object name="ypos">3</object>
+		<object name="frequency">2</object>
+		<object name="power">15</object>
+	</antenna>
+	
+	<antenna>
+		<name>C</name>
+		<object name="xpos">-3</object>
+		<object name="ypos">-3</object>
+		<object name="frequency">3</object>
+		<object name="power">9</object>
+	</antenna>
+	
+	<antenna>
+		<name>D</name>
+		<object name="xpos">3</object>
+		<object name="ypos">-3</object>
+		<object name="frequency">4</object>
+		<object name="power">21</object>
+	</antenna>
+	
+	<antenna>
+		<name>E</name>
+		<object name="xpos">-3</object>
+		<object name="ypos">3</object>
+		<object name="frequency">5</object>
+		<object name="power">12</object>
+	</antenna>
+
+</antennas>
