@@ -40,8 +40,11 @@ public class reception : MonoBehaviour {
 
         GameObject white = Instantiate(Resources.Load("white"), Vector2.right, Quaternion.identity) as GameObject;
         Tools.resize(white, GetComponent<SpriteRenderer>().bounds.size);
+
         white.transform.parent = gameObject.transform;
-        white.transform.localPosition = new Vector3(0, 0, -waves.Count - 1);
+        white.transform.localPosition = new Vector3(0, 0, 0);
+
+        //white.transform.position = new Vector3(transform.position.x, transform.position.y, -wave.antenna.GetComponent<antennaData>().frequency - 1);
 
         white.GetComponent<SpriteRenderer>().color = frequencyColor(wave.antenna.GetComponent<antennaData>().frequency);
         wave.coloration = white;
@@ -65,14 +68,40 @@ public class reception : MonoBehaviour {
 	}
 
 	void Update() {
+
         if (waves.Count > 0)
         {
-            foreach (Waves wave in waves)
+            int bestWave = 0;
+            float bestPower = 0;
+            Color color;
+            for (int i = 0; i < waves.Count; i++)
+            {
+                float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponent<CircleCollider2D>().radius);
+                if (alpha > bestPower)
+                {
+                    bestPower = alpha;
+                    bestWave = i;
+                }
+            }
+            for(int i = 0; i < waves.Count; i++)
+            {
+                color = waves[i].coloration.GetComponent<SpriteRenderer>().color;
+                if (i == bestWave)
+                    color.a = bestPower;
+                else
+                    color.a = 0;
+                waves[i].coloration.GetComponent<SpriteRenderer>().color = color;
+
+            }
+
+
+
+            /*foreach (Waves wave in waves)
             {
                 Color color = wave.coloration.GetComponent<SpriteRenderer>().color;
                 color.a = powerAlpha(wave.antenna.transform.position, wave.antenna.GetComponent<CircleCollider2D>().radius);
                 wave.coloration.GetComponent<SpriteRenderer>().color = color;
-            }
+            }*/
 
         }
     }
