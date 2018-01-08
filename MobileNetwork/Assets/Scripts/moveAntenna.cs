@@ -60,11 +60,6 @@ public class moveAntenna : MonoBehaviour {
     }
 
     void Update () {
-<<<<<<< Updated upstream
-		
-		if(!selected && Input.GetMouseButtonDown (1)
-			&& Tools.inside (gameObject, Camera.main.ScreenToWorldPoint (Input.mousePosition))) {
-=======
 
         /*Vector3 pos = Input.mousePosition;
         pos.z = transform.position.z - Camera.main.transform.position.z;
@@ -76,7 +71,6 @@ public class moveAntenna : MonoBehaviour {
 
         if (!selected && Input.GetMouseButtonDown (1)
 			&& Tools.inside (gameObject, worldMousePosition)) {
->>>>>>> Stashed changes
 				selected = true;
 		}
 		if (Input.GetMouseButtonUp (1)) {

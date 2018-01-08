@@ -47,15 +47,9 @@ public class reception : MonoBehaviour {
 
             //white.transform.position = new Vector3(transform.position.x, transform.position.y, -wave.antenna.GetComponent<antennaData>().frequency - 1);
 
-<<<<<<< Updated upstream
-        white.GetComponent<SpriteRenderer>().color = frequencyColor(wave.antenna.GetComponent<antennaData>().frequency);
-        wave.coloration = white;
-        white.transform.rotation = new Quaternion(0, 0, 0, 0);
-        white.transform.localScale = new Vector3(1, 1, 0);
-=======
+
             white.GetComponent<SpriteRenderer>().color = frequencyColor(wave.antenna.GetComponent<antennaData>().frequency);
             wave.coloration = white;
->>>>>>> Stashed changes
 
             white.transform.rotation = new Quaternion(0, 0, 0, 0);
             white.transform.localScale = new Vector3(1, 1, 0);
