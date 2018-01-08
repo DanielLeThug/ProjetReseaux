@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Antenna
+<<<<<<< HEAD
   - test
+=======
+  - wave
+>>>>>>> master
   layers:
   - Default
   - TransparentFX

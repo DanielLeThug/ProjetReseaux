@@ -46,7 +46,7 @@ public class AppStates : MonoBehaviour {
     }
 
 	private void createAntenna(float x, float y, int frequency, float power, string name) {
-		GameObject antenna = Instantiate (Resources.Load ("antenna"), new Vector3(x*0.2f, 0.2f, y*0.2f), Quaternion.identity) as GameObject;
+		GameObject antenna = Instantiate (Resources.Load ("antenna"), new Vector3(x*0.2f, 0.5f, y*0.2f), Quaternion.identity) as GameObject;
 		antenna.GetComponent<antennaData> ().set (name, frequency, power);
         Tools.resize(antenna, new Vector2(0.15f, 0.15f));
         antenna.transform.Rotate (new Vector3(90, 0, 0));
@@ -56,7 +56,7 @@ public class AppStates : MonoBehaviour {
 	private void createTile(float size, int i, int j) {
 		GameObject tile = Instantiate (Resources.Load ("tile"), Vector2.right, Quaternion.identity) as GameObject;
 		Tools.resize (tile, new Vector2(size, size));
-		tile.transform.position = new Vector3(i*size, 0.2f, j * size);
+		tile.transform.position = new Vector3(i*size, 0.5f, j * size);
         tile.transform.Rotate (new Vector3 (90, 0, 0));
     }
 
