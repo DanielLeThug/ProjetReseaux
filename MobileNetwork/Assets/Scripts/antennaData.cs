@@ -11,6 +11,6 @@ public class antennaData : MonoBehaviour {
 		name = newName;
 		frequency = newFrequency;
 		power = newPower;
-		GetComponent<CircleCollider2D> ().radius = power;
+		GetComponent<SphereCollider> ().radius = power;
 	}
 }
