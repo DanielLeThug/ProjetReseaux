@@ -31,7 +31,15 @@ public class reception : MonoBehaviour {
 		Vector3 a = transform.position;
 		Vector3 b = antennaPosition;
         float distanceaucarre = Mathf.Pow(b.x - a.x, 2) + Mathf.Pow(b.z - a.z, 2);
-        return antennaPower * (float)0.7 / (4 * Mathf.PI * distanceaucarre);
+        return antennaPower * 0.7f / (4 * Mathf.PI * distanceaucarre);
+    }
+
+    private float powerAlphaMax(GameObject go, float antennaPower) {
+        Vector2 size = Tools.dimension(go);
+        float tile_size = size.x;
+        float distanceminaucarre = Mathf.Pow(tile_size, 2) + Mathf.Pow(tile_size, 2);
+        print(tile_size);
+        return antennaPower * 0.7f / (4 * Mathf.PI * distanceminaucarre);
     }
 
 	void OnTriggerEnter(Collider collision) {
@@ -70,7 +78,6 @@ public class reception : MonoBehaviour {
 	}
 
 	void Update() {
-
         if (waves.Count > 0)
         {
             int bestWave = 0;
@@ -78,7 +85,10 @@ public class reception : MonoBehaviour {
             Color color;
             for (int i = 0; i < waves.Count; i++)
             {
+                GameObject[] gos = GameObject.FindGameObjectsWithTag("test");
+                float alpha_max = powerAlphaMax(gos[0], waves[i].antenna.GetComponent<SphereCollider>().radius);
                 float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponent<SphereCollider>().radius);
+                alpha /= alpha_max;
                 if (alpha > bestPower)
                 {
                     bestPower = alpha;

@@ -34,7 +34,7 @@ public class Tools : MonoBehaviour {
 		return size;
 	}
 
-	// donne les dimensions d'une ressource par son tag
+	// donne les dimensions d'une ressource par son tag (ne semble pas marcher avec les tiles (??))
 	public static Vector2 resourceSize(string tag) {
 		GameObject g = Instantiate (Resources.Load (tag), Tools.center(), Quaternion.identity) as GameObject;
 		Vector2 size = dimension (g);
