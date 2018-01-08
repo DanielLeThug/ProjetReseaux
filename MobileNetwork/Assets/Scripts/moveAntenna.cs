@@ -17,11 +17,11 @@ public class moveAntenna : MonoBehaviour {
 
     void Update () {
 		
-		if(!selected && Input.GetMouseButtonDown (0)
+		if(!selected && Input.GetMouseButtonDown (1)
 			&& Tools.inside (gameObject, Camera.main.ScreenToWorldPoint (Input.mousePosition))) {
 				selected = true;
 		}
-		if (Input.GetMouseButtonUp (0)) {
+		if (Input.GetMouseButtonUp (1)) {
 			selected = false;
 		}
 		if (selected) {

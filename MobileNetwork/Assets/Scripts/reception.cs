@@ -27,7 +27,7 @@ public class reception : MonoBehaviour {
 		return color;
 	}
 
-	private float powerAlpha(Vector2 antennaPosition, float antennaPower) {
+	private float powerAlpha(Vector3 antennaPosition, float antennaPower) {
 		Vector3 a = transform.position;
 		Vector3 b = antennaPosition;
         float distanceaucarre = Mathf.Pow(b.x - a.x, 2) + Mathf.Pow(b.z - a.z, 2);
@@ -48,6 +48,8 @@ public class reception : MonoBehaviour {
 
         white.GetComponent<SpriteRenderer>().color = frequencyColor(wave.antenna.GetComponent<antennaData>().frequency);
         wave.coloration = white;
+        white.transform.rotation = new Quaternion(0, 0, 0, 0);
+        white.transform.localScale = new Vector3(1, 1, 0);
 
         waves.Add(wave);
     }
