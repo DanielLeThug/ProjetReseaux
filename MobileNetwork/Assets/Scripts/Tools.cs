@@ -43,23 +43,25 @@ public class Tools : MonoBehaviour {
 	}
 
 	public static float top(GameObject go) {
-		return go.transform.position.y + go.GetComponent<SpriteRenderer> ().bounds.size.y / 2;
+		return go.transform.position.z + go.GetComponent<SpriteRenderer> ().bounds.size.z / 10;
 	}
 
 	public static float bottom(GameObject go) {
-		return go.transform.position.y - go.GetComponent<SpriteRenderer> ().bounds.size.y / 2;
+		return go.transform.position.z - go.GetComponent<SpriteRenderer> ().bounds.size.z;
 	}
 
 	public static float left(GameObject go) {
-		return go.transform.position.x - go.GetComponent<SpriteRenderer> ().bounds.size.x / 2;
+		return go.transform.position.x - go.GetComponent<SpriteRenderer> ().bounds.size.x / 10;
 	}
 
 	public static float right(GameObject go) {
-		return go.transform.position.x + go.GetComponent<SpriteRenderer> ().bounds.size.x / 2;
+		return go.transform.position.x + go.GetComponent<SpriteRenderer> ().bounds.size.x;
 	}
 
-	public static bool inside(GameObject go, Vector2 point) {
-		return point.y < top (go) && point.y > bottom (go) && point.x > left (go) && point.x < right (go);
+	public static bool inside(GameObject go, Vector3 point) {
+        //print(top(go) + " " + bottom(go) + " " + left(go) + " " + right(go));
+        //print(point.x + " " + left(go));
+		return point.z < top (go) && point.z > bottom (go) && point.x > left (go) && point.x < right (go);
 	}
 
 	public static void resize(GameObject go, Vector2 newSize) {

@@ -31,37 +31,48 @@ public class reception : MonoBehaviour {
 		Vector3 a = transform.position;
 		Vector3 b = antennaPosition;
         float distanceaucarre = Mathf.Pow(b.x - a.x, 2) + Mathf.Pow(b.z - a.z, 2);
-        return antennaPower * (float)0.7 / (4 * Mathf.PI * distanceaucarre);
+        return antennaPower * 0.7f / (4 * Mathf.PI * distanceaucarre);
     }
 
 	void OnTriggerEnter(Collider collision) {
-        Waves wave = new Waves();
-        wave.antenna = collision.gameObject;
+        if (collision.tag == "wave") {
+            Waves wave = new Waves();
+            wave.antenna = collision.gameObject.transform.parent.gameObject;
 
-        GameObject white = Instantiate(Resources.Load("white"), Vector2.right, Quaternion.identity) as GameObject;
-        Tools.resize(white, GetComponent<SpriteRenderer>().bounds.size);
+            GameObject white = Instantiate(Resources.Load("white"), Vector2.right, Quaternion.identity) as GameObject;
+            Tools.resize(white, GetComponent<SpriteRenderer>().bounds.size);
 
-        white.transform.parent = gameObject.transform;
-        white.transform.localPosition = new Vector3(0, 0, 0);
+            white.transform.parent = gameObject.transform;
+            white.transform.localPosition = new Vector3(0, 0, 0);
 
-        //white.transform.position = new Vector3(transform.position.x, transform.position.y, -wave.antenna.GetComponent<antennaData>().frequency - 1);
+            //white.transform.position = new Vector3(transform.position.x, transform.position.y, -wave.antenna.GetComponent<antennaData>().frequency - 1);
 
+<<<<<<< Updated upstream
         white.GetComponent<SpriteRenderer>().color = frequencyColor(wave.antenna.GetComponent<antennaData>().frequency);
         wave.coloration = white;
         white.transform.rotation = new Quaternion(0, 0, 0, 0);
         white.transform.localScale = new Vector3(1, 1, 0);
+=======
+            white.GetComponent<SpriteRenderer>().color = frequencyColor(wave.antenna.GetComponent<antennaData>().frequency);
+            wave.coloration = white;
+>>>>>>> Stashed changes
 
-        waves.Add(wave);
+            white.transform.rotation = new Quaternion(0, 0, 0, 0);
+            white.transform.localScale = new Vector3(1, 1, 0);
+            waves.Add(wave);
+        }
     }
 
 	void OnTriggerExit(Collider other) {
-        for (int i = 0; i < waves.Count; i++)
-        {
-            if (waves[i].antenna == other.gameObject)
+        if (other.tag == "wave") {
+            for (int i = 0; i < waves.Count; i++)
             {
-                Destroy(waves[i].coloration);
-                waves.RemoveAt(i);
-                break;
+                if (waves[i].antenna == other.gameObject)
+                {
+                    Destroy(waves[i].coloration);
+                    waves.RemoveAt(i);
+                    break;
+                }
             }
         }
     }
@@ -78,7 +89,7 @@ public class reception : MonoBehaviour {
             Color color;
             for (int i = 0; i < waves.Count; i++)
             {
-                float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponent<SphereCollider>().radius);
+                float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponentInChildren<SphereCollider>().radius);
                 if (alpha > bestPower)
                 {
                     bestPower = alpha;

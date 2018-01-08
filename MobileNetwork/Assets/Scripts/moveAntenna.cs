@@ -15,10 +15,68 @@ public class moveAntenna : MonoBehaviour {
         return false;
     }
 
+    /*void OnMouseOver() {
+
+        if(selected)
+        {
+            print("a");
+        }
+
+        if(Input.GetMouseButtonDown(1)){
+            selected = true;
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            selected = false;
+        }
+
+    //print("aa");
+}*/
+
+    private void OnMouseDown()
+    {
+        selected = true;
+    }
+
+    void OnMouseDrag()
+    {
+        if (selected)
+        {
+            Vector3 pos = Input.mousePosition;
+            pos.z = transform.position.z - Camera.main.transform.position.z;
+            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(pos);
+            worldMousePosition.y = 0.2f;
+            worldMousePosition.x *= 2f;
+            worldMousePosition.z *= 2f;
+            transform.position = worldMousePosition;
+            print("a");
+        }
+    }
+
+    private void OnMouseUp()
+    {
+        selected = false;
+    }
+
     void Update () {
+<<<<<<< Updated upstream
 		
 		if(!selected && Input.GetMouseButtonDown (1)
 			&& Tools.inside (gameObject, Camera.main.ScreenToWorldPoint (Input.mousePosition))) {
+=======
+
+        /*Vector3 pos = Input.mousePosition;
+        pos.z = transform.position.z - Camera.main.transform.position.z;
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(pos);
+        worldMousePosition.y = 0.2f;
+        worldMousePosition.x *= 2f;
+        worldMousePosition.z *= 2f;
+        
+
+        if (!selected && Input.GetMouseButtonDown (1)
+			&& Tools.inside (gameObject, worldMousePosition)) {
+>>>>>>> Stashed changes
 				selected = true;
 		}
 		if (Input.GetMouseButtonUp (1)) {
@@ -28,9 +86,9 @@ public class moveAntenna : MonoBehaviour {
 			Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			mousePos.z = transform.position.z;
             if (!touchedOtherAntenna(mousePos))
-                transform.position = mousePos;
+                transform.position = worldMousePosition;
             else
                 selected = false;
-        }
+        }*/
 	}
 }
