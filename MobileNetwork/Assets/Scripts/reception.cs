@@ -91,8 +91,8 @@ public class reception : MonoBehaviour {
             for (int i = 0; i < waves.Count; i++)
             {
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("test");
-                float alpha_max = powerAlphaMax(gos[0], waves[i].antenna.GetComponent<SphereCollider>().radius);
-                float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponent<SphereCollider>().radius);
+                float alpha_max = powerAlphaMax(gos[0], waves[i].antenna.GetComponentInChildren<SphereCollider>().radius);
+                float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponentInChildren<SphereCollider>().radius);
                 alpha /= alpha_max;
                 if (alpha > bestPower)
                 {
