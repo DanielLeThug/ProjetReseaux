@@ -28,9 +28,9 @@ public class reception : MonoBehaviour {
 	}
 
 	private float powerAlpha(Vector2 antennaPosition, float antennaPower) {
-		Vector2 a = transform.position;
-		Vector2 b = antennaPosition;
-        float distanceaucarre = Mathf.Pow(b.x - a.x, 2) + Mathf.Pow(b.y - a.y, 2);
+		Vector3 a = transform.position;
+		Vector3 b = antennaPosition;
+        float distanceaucarre = Mathf.Pow(b.x - a.x, 2) + Mathf.Pow(b.z - a.z, 2);
         return antennaPower * (float)0.7 / (4 * Mathf.PI * distanceaucarre);
     }
 
