@@ -13,13 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
-    y: 43
+    x: 8
+    y: 51
     width: 1920
     height: 997
   m_ShowMode: 4
   m_Title: 
+<<<<<<< Updated upstream
   m_RootView: {fileID: 4}
+=======
+  m_RootView: {fileID: 2}
+>>>>>>> Stashed changes
   m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
@@ -115,7 +119,11 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
+<<<<<<< Updated upstream
 --- !u!114 &6
+=======
+--- !u!114 &4
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -139,11 +147,18 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 471}
   m_MaxSize: {x: 18008, y: 14021}
   vertical: 0
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   controlID: 68
 --- !u!114 &7
 =======
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   controlID: 3601
+=======
+  controlID: 31
+>>>>>>> Stashed changes
 --- !u!114 &5
 >>>>>>> master
 MonoBehaviour:
@@ -188,11 +203,18 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 421}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   controlID: 106
 --- !u!114 &9
 =======
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   controlID: 3691
+=======
+  controlID: 84
+>>>>>>> Stashed changes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -211,8 +233,8 @@ MonoBehaviour:
     y: 0
     width: 308
     height: 947
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -314,7 +336,11 @@ MonoBehaviour:
     height: 461
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
+<<<<<<< Updated upstream
   m_ActualView: {fileID: 16}
+=======
+  m_ActualView: {fileID: 15}
+>>>>>>> Stashed changes
   m_Panes:
   - {fileID: 16}
   m_Selected: 0
@@ -341,6 +367,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< Updated upstream
     x: 910
     y: 92
 <<<<<<< HEAD
@@ -353,15 +380,28 @@ MonoBehaviour:
     m_LastClickedID: -137176
     m_ExpandedIDs: 8c83ffff84f4ffff1af9ffff00000000
 =======
+=======
+    x: 918
+    y: 100
+>>>>>>> Stashed changes
     width: 304
     height: 926
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
     m_SelectedIDs: e424fdff
     m_LastClickedID: 0
     m_ExpandedIDs: 00000000
+<<<<<<< Updated upstream
 >>>>>>> master
+=======
+=======
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 1af9ffff00000000
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: antenna(Clone)
@@ -405,9 +445,15 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< Updated upstream
     x: 1353
     y: 92
     width: 567
+=======
+    x: 1501
+    y: 100
+    width: 427
+>>>>>>> Stashed changes
     height: 926
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ScrollPosition: {x: 0, y: 0}
@@ -439,6 +485,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     x: 910
     y: 528
@@ -447,6 +494,10 @@ MonoBehaviour:
 =======
     x: 1218
     y: 92
+=======
+    x: 1226
+    y: 100
+>>>>>>> Stashed changes
     width: 271
     height: 926
 >>>>>>> master
@@ -469,6 +520,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scripts
   m_LastFoldersGridSize: -1
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   m_LastProjectPath: C:\Users\Laurent\Documents\GitKraken\ProjetReseaux\MobileNetwork
   m_IsLocked: 0
@@ -478,6 +530,9 @@ MonoBehaviour:
     m_LastClickedID: 11056
     m_ExpandedIDs: 00000000082b0000202b00002c2b00004e2b000000ca9a3bffffff7f
 =======
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   m_LastProjectPath: C:\Users\Wettel\Documents\ProjetReseaux\MobileNetwork
   m_IsLocked: 0
   m_FolderTreeState:
@@ -485,7 +540,19 @@ MonoBehaviour:
     m_SelectedIDs: 3e2a0000
     m_LastClickedID: 10814
     m_ExpandedIDs: 000000003e2a0000642a000000ca9a3bffffff7f
+<<<<<<< Updated upstream
 >>>>>>> master
+=======
+=======
+  m_LastProjectPath: D:\Projects\ProjetReseaux\MobileNetwork
+  m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 082b0000
+    m_LastClickedID: 11016
+    m_ExpandedIDs: 00000000082b00002c2b000000ca9a3bffffff7f
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -513,11 +580,19 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     m_ExpandedIDs: 00000000082b00002c2b0000
 =======
     m_ExpandedIDs: 000000003e2a0000642a000000ca9a3bffffff7f
 >>>>>>> master
+=======
+<<<<<<< Updated upstream
+    m_ExpandedIDs: 000000003e2a0000642a000000ca9a3bffffff7f
+=======
+    m_ExpandedIDs: 00000000082b00002c2b0000
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -594,8 +669,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 578
+    x: 8
+    y: 586
     width: 906
     height: 440
   m_PersistentViewDataDictionary: {fileID: 0}
@@ -671,8 +746,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 92
+    x: 8
+    y: 100
     width: 906
     height: 465
   m_PersistentViewDataDictionary: {fileID: 0}
