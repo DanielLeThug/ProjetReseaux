@@ -30,9 +30,9 @@ public class reception : MonoBehaviour {
 	private float powerAlpha(Vector2 antennaPosition, float antennaPower) {
 		Vector2 a = transform.position;
 		Vector2 b = antennaPosition;
-		float distance = Mathf.Sqrt (Mathf.Pow (b.x - a.x, 2) + Mathf.Pow (b.y - a.y, 2));
-		return 1 - ((distance / antennaPower) * 5);
-	}
+        float distanceaucarre = Mathf.Pow(b.x - a.x, 2) + Mathf.Pow(b.y - a.y, 2);
+        return antennaPower * (float)0.7 / (4 * Mathf.PI * distanceaucarre);
+    }
 
 	void OnTriggerEnter2D(Collider2D collision) {
         Waves wave = new Waves();
