@@ -31,7 +31,8 @@ public class reception : MonoBehaviour {
 		Vector3 a = transform.position;
 		Vector3 b = antennaPosition;
         float distanceaucarre = Mathf.Pow(b.x - a.x, 2) + Mathf.Pow(b.z - a.z, 2);
-        return antennaPower * 0.7f / (4 * Mathf.PI * distanceaucarre);
+        antennaPower /= 24.0f;
+        return antennaPower * 1.0f / (4 * Mathf.PI * distanceaucarre);
     }
 
 	void OnTriggerEnter(Collider collision) {
