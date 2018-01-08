@@ -27,6 +27,7 @@ public class reception : MonoBehaviour {
 		return color;
 	}
 
+    // Power density of the tile
 	private float powerAlpha(Vector3 antennaPosition, float antennaPower) {
 		Vector3 a = transform.position;
 		Vector3 b = antennaPosition;
@@ -34,11 +35,11 @@ public class reception : MonoBehaviour {
         return antennaPower * 0.7f / (4 * Mathf.PI * distanceaucarre);
     }
 
+    // Max power density of an antenna
     private float powerAlphaMax(GameObject go, float antennaPower) {
         Vector2 size = Tools.dimension(go);
         float tile_size = size.x;
         float distanceminaucarre = Mathf.Pow(tile_size, 2) + Mathf.Pow(tile_size, 2);
-        print(tile_size);
         return antennaPower * 0.7f / (4 * Mathf.PI * distanceminaucarre);
     }
 
@@ -93,7 +94,7 @@ public class reception : MonoBehaviour {
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("test");
                 float alpha_max = powerAlphaMax(gos[0], waves[i].antenna.GetComponentInChildren<SphereCollider>().radius);
                 float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponentInChildren<SphereCollider>().radius);
-                alpha /= alpha_max;
+                alpha /= alpha_max; // We need a value between 0 and 1 for the opacity
                 if (alpha > bestPower)
                 {
                     bestPower = alpha;
