@@ -34,7 +34,7 @@ public class reception : MonoBehaviour {
         return antennaPower * (float)0.7 / (4 * Mathf.PI * distanceaucarre);
     }
 
-	void OnTriggerEnter2D(Collider2D collision) {
+	void OnTriggerEnter(Collider collision) {
         Waves wave = new Waves();
         wave.antenna = collision.gameObject;
 
@@ -52,7 +52,7 @@ public class reception : MonoBehaviour {
         waves.Add(wave);
     }
 
-	void OnTriggerExit2D(Collider2D other) {
+	void OnTriggerExit(Collider other) {
         for (int i = 0; i < waves.Count; i++)
         {
             if (waves[i].antenna == other.gameObject)
@@ -76,7 +76,7 @@ public class reception : MonoBehaviour {
             Color color;
             for (int i = 0; i < waves.Count; i++)
             {
-                float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponent<CircleCollider2D>().radius);
+                float alpha = powerAlpha(waves[i].antenna.transform.position, waves[i].antenna.GetComponent<SphereCollider>().radius);
                 if (alpha > bestPower)
                 {
                     bestPower = alpha;
