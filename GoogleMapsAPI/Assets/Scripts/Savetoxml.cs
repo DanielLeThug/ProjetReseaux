@@ -37,13 +37,15 @@ public class Savetoxml : MonoBehaviour {
             // Gathers data from the Unity components
             antennaData antenna = antennaobject.GetComponent<antennaData>();
 
-            writer.WriteStartElement("Antenna"); // <Antenna>
-            writer.WriteAttributeString("name", antenna.name); // Adds name as parameters of antenna <Antenna>
-            writer.WriteElementString("xpos", antennaobject.transform.position.x.ToString()); // Adds the x position
-            writer.WriteElementString("ypos", antennaobject.transform.position.y.ToString()); // Adds the y position
-            writer.WriteElementString("frequency", antenna.frequency.ToString()); // Adds the frequency
-            writer.WriteElementString("power", antenna.power.ToString()); // Adds the power
-            writer.WriteEndElement(); // </Antenna>
+           writer.WriteStartElement("Antenna"); // <Antenna>
+                writer.WriteAttributeString("name", antenna.name); // Adds name as parameters of antenna <Antenna>
+                float x = antennaobject.transform.position.x;
+                writer.WriteElementString("xpos", x.ToString()); // Adds the x position
+                float z = antennaobject.transform.position.z;
+                writer.WriteElementString("zpos", z.ToString()); // Adds the y position
+                writer.WriteElementString("frequency", antenna.frequency.ToString()); // Adds the frequency
+                writer.WriteElementString("power", antenna.power.ToString()); // Adds the power
+                writer.WriteEndElement(); // </Antenna>
         }
         writer.WriteEndElement(); // </Antennas>
         filename.Save(writer); // Writes everything in the XML file

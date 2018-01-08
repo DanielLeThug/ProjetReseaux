@@ -1,43 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <antennas>
-
-	<antenna>
-		<name>A</name>
-		<object name="xpos">0</object>
-		<object name="ypos">0</object>
-		<object name="frequency">1</object>
-		<object name="power">24</object>
-	</antenna>
-  
-	<antenna>
-		<name>B</name>
-		<object name="xpos">3</object>
-		<object name="ypos">3</object>
-		<object name="frequency">2</object>
-		<object name="power">15</object>
-	</antenna>
-	
-	<antenna>
-		<name>C</name>
-		<object name="xpos">-3</object>
-		<object name="ypos">-3</object>
-		<object name="frequency">3</object>
-		<object name="power">9</object>
-	</antenna>
-	
-	<antenna>
-		<name>D</name>
-		<object name="xpos">3</object>
-		<object name="ypos">-3</object>
-		<object name="frequency">4</object>
-		<object name="power">21</object>
-	</antenna>
-	
-	<antenna>
-		<name>E</name>
-		<object name="xpos">-3</object>
-		<object name="ypos">3</object>
-		<object name="frequency">5</object>
-		<object name="power">12</object>
-	</antenna>
-
+  <antenna
+    name="A">
+    <xpos>0</xpos>
+    <zpos>0</zpos>
+    <frequency>1</frequency>
+    <power>24</power>
+  </antenna>
+  <antenna
+    name="B">
+    <xpos>0.4</xpos>
+    <zpos>0.6</zpos>
+    <frequency>2</frequency>
+    <power>15</power>
+  </antenna>
+  <antenna
+    name="C">
+    <xpos>-0.6</xpos>
+    <zpos>0.6</zpos>
+    <frequency>3</frequency>
+    <power>9</power>
+  </antenna>
+  <antenna
+    name="D">
+    <xpos>0.6</xpos>
+    <zpos>-0.6</zpos>
+    <frequency>4</frequency>
+    <power>21</power>
+  </antenna>
+  <antenna
+    name="E">
+    <xpos>-0.6</xpos>
+    <zpos>-0.6</zpos>
+    <frequency>5</frequency>
+    <power>12</power>
+  </antenna>
 </antennas>

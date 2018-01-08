@@ -8,8 +8,8 @@ public class AppStates : MonoBehaviour {
 
     public TextAsset GameAsset;
     static string AntennaName = "";
-    static int xpos = 0;
-    static int ypos = 0;
+    static float xpos = 0;
+    static float zpos = 0;
     static int frequency = 0;
     static int power = 0;
 
@@ -19,34 +19,27 @@ public class AppStates : MonoBehaviour {
         xmlDoc.LoadXml(GameAsset.text);
         XmlNodeList antennasList = xmlDoc.GetElementsByTagName("antenna");
 
-        foreach (XmlNode antennaInfo in antennasList)
+        foreach (XmlNode antenna in antennasList)
         {
-            XmlNodeList antennacontent = antennaInfo.ChildNodes;
+            AntennaName = antenna.Attributes["name"].Value;
+            XmlNodeList antennacontent = antenna.ChildNodes;
 
-            foreach (XmlNode antennaItem in antennacontent) // levels items nodes.
+            foreach (XmlNode antennaInfo in antennacontent) // levels items nodes.
             {
-                if (antennaItem.Name == "name")
+                switch (antennaInfo.Name)
                 {
-                    AntennaName = antennaItem.InnerText;
-                }
-
-                if (antennaItem.Name == "object")
-                {
-                    switch (antennaItem.Attributes["name"].Value)
-                    {
-                        case "xpos": xpos = int.Parse(antennaItem.InnerText); break; // put this in the dictionary.
-                        case "ypos": ypos = int.Parse(antennaItem.InnerText); break; // put this in the dictionary.
-                        case "frequency": frequency = int.Parse(antennaItem.InnerText); break; // put this in the dictionary.
-                        case "power": power = int.Parse(antennaItem.InnerText); break; // put this in the dictionary.
-                    }
-                }
+                    case "xpos": xpos = float.Parse(antennaInfo.InnerText); break; // put this in variable.
+                    case "zpos": zpos = float.Parse(antennaInfo.InnerText); break; // put this in variable.
+                    case "frequency": frequency = int.Parse(antennaInfo.InnerText); break; // put this in variable.
+                    case "power": power = int.Parse(antennaInfo.InnerText); break; // put this in variable.
+                }        
             }
-            createAntenna(xpos, ypos, frequency, power, AntennaName);
+            createAntenna(xpos, zpos, frequency, power, AntennaName);
         }  
     }
 
 	private void createAntenna(float x, float y, int frequency, float power, string name) {
-		GameObject antenna = Instantiate (Resources.Load ("antenna"), new Vector3(x*0.2f, 0.5f, y*0.2f), Quaternion.identity) as GameObject;
+		GameObject antenna = Instantiate (Resources.Load ("antenna"), new Vector3(x, 0.5f, y), Quaternion.identity) as GameObject;
 		antenna.GetComponent<antennaData> ().set (name, frequency, power);
         Tools.resize(antenna, new Vector2(0.15f, 0.15f));
         antenna.transform.Rotate (new Vector3(90, 0, 0));
