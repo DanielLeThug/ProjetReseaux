@@ -21,10 +21,15 @@ public class getInfos : MonoBehaviour
         customImage.enabled = true;
         customText.enabled = true;
     }
-
+    
     private void OnMouseExit()
     {
         customImage.enabled = false;
         customText.enabled = false;
+    }
+
+    private void OnMouseDown()
+    {
+        FindObjectOfType<Camera>().GetComponent<Selection>().SelectedAntenna = transform.root.gameObject;
     }
 }
