@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Antenna
   - wave
+  - test
+  - coloriser
   layers:
   - Default
   - TransparentFX

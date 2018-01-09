@@ -51,7 +51,8 @@ public class AppStates : MonoBehaviour {
         Tools.resize(antenna, new Vector2(0.15f, 0.15f));
         antenna.transform.Rotate (new Vector3(90, 0, 0));
         antennas.Add (antenna);
-	}
+        GameObject coloriser = Instantiate(Resources.Load("coloriser"), new Vector3(x * 0.2f, 0.5f, y * 0.2f), Quaternion.identity) as GameObject;
+    }
 
 	private void createTile(float size, int i, int j) {
 		GameObject tile = Instantiate (Resources.Load ("tile"), Vector2.right, Quaternion.identity) as GameObject;
