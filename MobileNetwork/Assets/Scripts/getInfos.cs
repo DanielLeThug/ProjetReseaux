@@ -16,7 +16,7 @@ public class getInfos : MonoBehaviour
 
     private void OnMouseOver()
     {
-        customText.text = "Position : (x : " + transform.position.x + ", y : " + transform.position.x + ")\n" +
+        customText.text = "Position : (x : " + transform.position.x + ", y : " + transform.position.z + ")\n" +
             "Fréquence : " + GetComponent<antennaData>().frequency + "\nPuissance : " + GetComponent<antennaData>().power;
         customImage.enabled = true;
         customText.enabled = true;
