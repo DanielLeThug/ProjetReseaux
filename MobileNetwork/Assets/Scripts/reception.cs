@@ -67,7 +67,7 @@ public class reception : MonoBehaviour {
 	void OnTriggerExit(Collider other) {
         for (int i = 0; i < waves.Count; i++)
         {
-            if (waves[i].antenna == other.gameObject)
+            if (waves[i].antenna == other.gameObject.GetComponent<getAntenna>().source)
             {
                 Destroy(waves[i].coloration);
                 waves.RemoveAt(i);
