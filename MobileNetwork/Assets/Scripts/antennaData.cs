@@ -13,7 +13,6 @@ public class antennaData : MonoBehaviour {
 		frequency = newFrequency;
 		power = newPower;
         coloriser = newColoriser;
-
-        //GetComponent<SphereCollider>().radius = power;
+        coloriser.transform.localScale = new Vector3(newPower, 0.05f, newPower);
 	}
 }

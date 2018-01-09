@@ -5,34 +5,34 @@
     <xpos>0</xpos>
     <zpos>0</zpos>
     <frequency>1</frequency>
-    <power>24</power>
+    <power>0.6</power>
   </antenna>
   <antenna
     name="B">
     <xpos>0.4</xpos>
     <zpos>0.6</zpos>
     <frequency>2</frequency>
-    <power>15</power>
+    <power>0.1</power>
   </antenna>
   <antenna
     name="C">
     <xpos>-0.6</xpos>
     <zpos>0.6</zpos>
     <frequency>3</frequency>
-    <power>9</power>
+    <power>0.3</power>
   </antenna>
   <antenna
     name="D">
     <xpos>0.6</xpos>
     <zpos>-0.6</zpos>
     <frequency>4</frequency>
-    <power>21</power>
+    <power>0.9</power>
   </antenna>
   <antenna
     name="E">
     <xpos>-0.6</xpos>
     <zpos>-0.6</zpos>
     <frequency>5</frequency>
-    <power>12</power>
+    <power>0.4</power>
   </antenna>
 </antennas>

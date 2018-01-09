@@ -11,7 +11,7 @@ public class AppStates : MonoBehaviour {
     static float xpos = 0;
     static float zpos = 0;
     static int frequency = 0;
-    static int power = 0;
+    static float power = 0;
 
     private void createAntennas() {
 
@@ -31,7 +31,7 @@ public class AppStates : MonoBehaviour {
                     case "xpos": xpos = float.Parse(antennaInfo.InnerText); break; // put this in variable.
                     case "zpos": zpos = float.Parse(antennaInfo.InnerText); break; // put this in variable.
                     case "frequency": frequency = int.Parse(antennaInfo.InnerText); break; // put this in variable.
-                    case "power": power = int.Parse(antennaInfo.InnerText); break; // put this in variable.
+                    case "power": power = float.Parse(antennaInfo.InnerText); break; // put this in variable.
                 }        
             }
             createAntenna(xpos, zpos, frequency, power, AntennaName);
