@@ -40,11 +40,12 @@ public class AppStates : MonoBehaviour {
 
 	private void createAntenna(float x, float y, int frequency, float power, string name) {
 		GameObject antenna = Instantiate (Resources.Load ("antenna"), new Vector3(x, 0.5f, y), Quaternion.identity) as GameObject;
-		antenna.GetComponent<antennaData> ().set (name, frequency, power);
+        GameObject coloriser = Instantiate(Resources.Load("coloriser"), new Vector3(x, 0.5f, y), Quaternion.identity) as GameObject;
+        antenna.GetComponent<antennaData>().set(name, frequency, power, coloriser);
         Tools.resize(antenna, new Vector2(0.15f, 0.15f));
         antenna.transform.Rotate (new Vector3(90, 0, 0));
         antennas.Add (antenna);
-        GameObject coloriser = Instantiate(Resources.Load("coloriser"), new Vector3(x * 0.2f, 0.5f, y * 0.2f), Quaternion.identity) as GameObject;
+        coloriser.GetComponent<getAntenna>().source = antenna;
     }
 
 	private void createTile(float size, int i, int j) {

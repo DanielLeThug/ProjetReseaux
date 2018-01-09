@@ -45,7 +45,7 @@ public class reception : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collision) {
         Waves wave = new Waves();
-        wave.antenna = collision.gameObject;
+        wave.antenna = collision.gameObject.GetComponent<getAntenna>().source;
 
         GameObject white = Instantiate(Resources.Load("white"), Vector2.right, Quaternion.identity) as GameObject;
         Tools.resize(white, GetComponent<SpriteRenderer>().bounds.size);
