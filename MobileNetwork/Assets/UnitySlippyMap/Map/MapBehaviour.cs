@@ -1258,7 +1258,6 @@ namespace UnitySlippyMap.Map
 			// setup the marker
 			marker.Map = this;
 			marker.CoordinatesWGS84 = coordinatesWGS84;
-		
 			// add marker to the markers' list
 			markers.Add (marker);
 		

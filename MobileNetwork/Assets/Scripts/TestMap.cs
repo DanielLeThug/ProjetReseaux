@@ -167,11 +167,18 @@ public class TestMap : MonoBehaviour
             map.IsDirty = true;
         }
 
+        if (GUILayout.RepeatButton("Add antenna", GUILayout.ExpandHeight(true)))
+        {
+            
+            pressed = true;
+        }
+
         if (GUILayout.RepeatButton("-", GUILayout.ExpandHeight(true)))
 		{
 			map.Zoom(-1.0f);
 			pressed = true;
 		}
+
         if (Event.current.type == EventType.Repaint)
         {
             Rect rect = GUILayoutUtility.GetLastRect();
@@ -215,38 +222,12 @@ public class TestMap : MonoBehaviour
         layers = new List<LayerBehaviour>();
 
 		// create an OSM tile layer
-        OSMTileLayer osmLayer = map.CreateLayer<OSMTileLayer>("OSM");
+        OSMTileLayer osmLayer = map.CreateLayer<OSMTileLayer>("OMS");
         osmLayer.BaseURL = "http://a.tile.openstreetmap.org/";
-		
         layers.Add(osmLayer);
 
-		// create a WMS tile layer
-        WMSTileLayerBehaviour wmsLayer = map.CreateLayer<WMSTileLayerBehaviour>("WMS");
-        wmsLayer.BaseURL = "http://129.206.228.72/cached/osm?"; // http://www.osm-wms.de : seems to be of very limited use
-        wmsLayer.Layers = "osm_auto:all";
-#if UNITY_3_0 || UNITY_3_1 || UNITY_3_2 || UNITY_3_3 || UNITY_3_4 || UNITY_3_5 || UNITY_3_6 || UNITY_3_7 || UNITY_3_8 || UNITY_3_9
-        wmsLayer.gameObject.SetActiveRecursively(false);
-#else
-		wmsLayer.gameObject.SetActive(false);
-#endif
-
-        layers.Add(wmsLayer);
-
-		// create a VirtualEarth tile layer
-        VirtualEarthTileLayerBehaviour virtualEarthLayer = map.CreateLayer<VirtualEarthTileLayerBehaviour>("VirtualEarth");
-        // Note: this is the key UnitySlippyMap, DO NOT use it for any other purpose than testing
-        virtualEarthLayer.Key = "ArgkafZs0o_PGBuyg468RaapkeIQce996gkyCe8JN30MjY92zC_2hcgBU_rHVUwT";
-
-#if UNITY_3_0 || UNITY_3_1 || UNITY_3_2 || UNITY_3_3 || UNITY_3_4 || UNITY_3_5 || UNITY_3_6 || UNITY_3_7 || UNITY_3_8 || UNITY_3_9
-        virtualEarthLayer.gameObject.SetActiveRecursively(false);
-#else
-		virtualEarthLayer.gameObject.SetActive(false);
-#endif
-
-        layers.Add(virtualEarthLayer);
-
-		// create an MBTiles tile layer
-		bool error = false;
+        // create an MBTiles tile layer
+        bool error = false;
 		// on iOS, you need to add the db file to the Xcode project using a directory reference
 		string mbTilesDir = "MBTiles/";
 		//string filename = "UnitySlippyMap_World_0_8.mbtiles";
