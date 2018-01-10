@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using UnitySlippyMap.Map;
 
 public class reception : MonoBehaviour {
 
@@ -76,16 +75,6 @@ public class reception : MonoBehaviour {
             }
         }
     }
-	
-	// Gives the location of an antenna in the WGS84 system
-    private double[] GetAntennaLocalisation(GameObject antenna, MapBehaviour map)
-    {
-        Vector3 tmp = Camera.main.WorldToScreenPoint(antenna.transform.position);
-        int[] center_tile = UnitySlippyMap.Helpers.GeoHelpers.WGS84ToTile(map.CenterWGS84[0], map.CenterWGS84[1], map.RoundedZoom);
-        return UnitySlippyMap.Helpers.GeoHelpers.TileToWGS84((int)(center_tile[0] + tmp.x),
-                                                                      (int)(center_tile[1] + tmp.z),
-                                                                      map.RoundedZoom);
-    }
 
 	void Start() {
 	}
@@ -119,13 +108,7 @@ public class reception : MonoBehaviour {
 
             }
 			
-			GameObject go = GameObject.FindGameObjectWithTag("map");
-            MapBehaviour map = go.GetComponent<MapBehaviour>();
-            foreach (GameObject antenna in AppStates.antennas)
-            {
-                antenna.GetComponent<antennaData>().localisationWGS84 = GetAntennaLocalisation(antenna, map);
-            }
-
+			
         }
     }
 }

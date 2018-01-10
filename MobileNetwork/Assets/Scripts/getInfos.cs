@@ -16,8 +16,10 @@ public class getInfos : MonoBehaviour
 
     private void OnMouseOver()
     {
+        customText.fontSize = 9;
         customText.text = "Position : (x : " + transform.position.x + ", y : " + transform.position.z + ")\n" +
-            "Fréquence : " + GetComponent<antennaData>().frequency + "\nPuissance : " + GetComponent<antennaData>().power;
+            "Fréquence : " + GetComponent<antennaData>().frequency + "\nPuissance : " + GetComponent<antennaData>().power + "\nLongitude : " +
+            GetComponent<antennaData>().localisationWGS84[0] + "\nLatitude : " + GetComponent<antennaData>().localisationWGS84[1];
         customImage.enabled = true;
         customText.enabled = true;
     }

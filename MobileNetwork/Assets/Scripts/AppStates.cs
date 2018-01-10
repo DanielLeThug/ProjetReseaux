@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Xml;
+using UnitySlippyMap.Map;
 
 public class AppStates : MonoBehaviour {
 
@@ -35,10 +36,25 @@ public class AppStates : MonoBehaviour {
                 }        
             }
             createAntenna(xpos, zpos, frequency, power, AntennaName);
-        }  
+        }
+    }
+    
+    // Gives the location of an antenna in the WGS84 system
+    public static double[] GetAntennaLocation(GameObject antenna, MapBehaviour map)
+    {
+        Vector3 tmp;
+        Vector3 tmp_pos;
+        tmp_pos.x = antenna.transform.position.x - Screen.width / 2f;
+        tmp_pos.y = antenna.transform.position.y - Screen.height / 2f;
+        tmp_pos.z = antenna.transform.position.z;
+        tmp = Camera.main.ScreenToWorldPoint(tmp_pos);
+        int[] center_tile = UnitySlippyMap.Helpers.GeoHelpers.WGS84ToTile(map.CenterWGS84[0], map.CenterWGS84[1], map.RoundedZoom);
+        return UnitySlippyMap.Helpers.GeoHelpers.TileToWGS84((int)(center_tile[0] + tmp.x),
+                                                                      (int)(center_tile[1] + tmp.y),
+                                                                      map.RoundedZoom);
     }
 
-	public void createAntenna(float x, float y, int frequency, float power, string name) {
+    public void createAntenna(float x, float y, int frequency, float power, string name) {
 		GameObject antenna = Instantiate (Resources.Load ("antenna"), new Vector3(x, 0.5f, y), Quaternion.identity) as GameObject;
         GameObject coloriser = Instantiate(Resources.Load("coloriser"), new Vector3(x, 0.5f, y), Quaternion.identity) as GameObject;
         antenna.GetComponent<antennaData>().set(name, frequency, power, coloriser);
@@ -46,6 +62,9 @@ public class AppStates : MonoBehaviour {
         antenna.transform.Rotate (new Vector3(90, 0, 0));
         antennas.Add (antenna);
         coloriser.GetComponent<getAntenna>().source = antenna;
+        GameObject go = GameObject.FindGameObjectWithTag("map");
+        MapBehaviour map = go.GetComponent<MapBehaviour>();
+        antenna.GetComponent<antennaData>().localisationWGS84 = GetAntennaLocation(antenna, map);
     }
 
 	private void createTile(float size, int i, int j) {
