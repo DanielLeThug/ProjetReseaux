@@ -30,6 +30,26 @@ public class Selection : MonoBehaviour {
                 SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x + 0.2f, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z);
                 SelectedAntenna.GetComponent<antennaData>().coloriser.transform.position = new Vector3(SelectedAntenna.transform.position.x + 0.2f, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z);
             }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                float newPower = SelectedAntenna.GetComponent<antennaData>().power + 50f;
+                SelectedAntenna.GetComponent<antennaData>().setPower(newPower);
+            }
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                float newPower = SelectedAntenna.GetComponent<antennaData>().power - 50f;
+                SelectedAntenna.GetComponent<antennaData>().setPower(newPower);
+            }
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                int newFrequency = SelectedAntenna.GetComponent<antennaData>().frequency + 1;
+                SelectedAntenna.GetComponent<antennaData>().frequency = newFrequency;
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                int newFrequency = SelectedAntenna.GetComponent<antennaData>().frequency - 1;
+                SelectedAntenna.GetComponent<antennaData>().frequency = newFrequency;
+            }
         }    
     }
 
