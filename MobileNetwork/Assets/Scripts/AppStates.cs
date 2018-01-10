@@ -4,7 +4,7 @@ using System.Xml;
 
 public class AppStates : MonoBehaviour {
 
-	List<GameObject> antennas = new List<GameObject>();
+	public static List<GameObject> antennas = new List<GameObject>();
 
     public TextAsset GameAsset;
     static string AntennaName = "";
