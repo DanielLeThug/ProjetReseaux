@@ -167,10 +167,11 @@ public class TestMap : MonoBehaviour
             map.IsDirty = true;
         }
 
-        if (GUILayout.RepeatButton("Add antenna", GUILayout.ExpandHeight(true)))
+        if (GUILayout.Button("Add antenna", GUILayout.ExpandHeight(true)))
         {
-            
             pressed = true;
+            AppStates app = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AppStates>();
+            app.createAntenna(0, 0, 6, 300, "New Antenna");
         }
 
         if (GUILayout.RepeatButton("-", GUILayout.ExpandHeight(true)))
@@ -306,7 +307,7 @@ public class TestMap : MonoBehaviour
 		markerGO = Instantiate(go) as GameObject;
 		map.CreateMarker<MarkerBehaviour>("test marker - 1 place St Nizier, Lyon", new double[2] { 4.83295, 45.76468 }, markerGO);
 
-		DestroyImmediate(go);
+		//DestroyImmediate(go);
 		
 		// create the location marker
 		go = TileBehaviour.CreateTileTemplate().gameObject;
@@ -317,7 +318,7 @@ public class TestMap : MonoBehaviour
 		markerGO = Instantiate(go) as GameObject;
 		map.SetLocationMarker<LocationMarkerBehaviour>(markerGO);
 
-		DestroyImmediate(go);
+		//DestroyImmediate(go);
 	}
 	
 	void OnApplicationQuit()
