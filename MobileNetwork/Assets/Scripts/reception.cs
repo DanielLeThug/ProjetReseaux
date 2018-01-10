@@ -78,10 +78,10 @@ public class reception : MonoBehaviour {
     }
 	
 	// Gives the location of an antenna in the WGS84 system
-    private double[] GetAntennaLocalisation(GameObject antenna, double lat_center, double lon_center, MapBehaviour map)
+    private double[] GetAntennaLocalisation(GameObject antenna, MapBehaviour map)
     {
         Vector3 tmp = Camera.main.WorldToScreenPoint(antenna.transform.position);
-        int[] center_tile = UnitySlippyMap.Helpers.GeoHelpers.WGS84ToTile(lat_center, lon_center, map.RoundedZoom);
+        int[] center_tile = UnitySlippyMap.Helpers.GeoHelpers.WGS84ToTile(map.CenterWGS84[0], map.CenterWGS84[1], map.RoundedZoom);
         return UnitySlippyMap.Helpers.GeoHelpers.TileToWGS84((int)(center_tile[0] + tmp.x),
                                                                       (int)(center_tile[1] + tmp.z),
                                                                       map.RoundedZoom);
@@ -123,7 +123,7 @@ public class reception : MonoBehaviour {
             MapBehaviour map = go.GetComponent<MapBehaviour>();
             foreach (GameObject antenna in AppStates.antennas)
             {
-                antenna.GetComponent<antennaData>().localisationWGS84 = GetAntennaLocalisation(antenna, 4.83527, 45.76487, map);
+                antenna.GetComponent<antennaData>().localisationWGS84 = GetAntennaLocalisation(antenna, map);
             }
 
         }
