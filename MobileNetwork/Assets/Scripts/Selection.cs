@@ -9,6 +9,8 @@ public class Selection : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKey("escape"))
+            Application.Quit();
         if (SelectedAntenna != null)
         {
             if (Input.GetKeyDown("up"))
