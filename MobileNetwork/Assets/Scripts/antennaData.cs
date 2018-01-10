@@ -16,4 +16,12 @@ public class antennaData : MonoBehaviour {
         coloriser = newColoriser;
         coloriser.transform.localScale = new Vector3(newPower, 0.05f, newPower);
 	}
+
+    public void setPower(float newPower)
+    {
+        if (newPower > 0){
+            power = newPower;
+            coloriser.transform.localScale = new Vector3(newPower/400, 0.05f, newPower/400);
+        }
+    }
 }

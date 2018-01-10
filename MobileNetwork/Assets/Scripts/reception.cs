@@ -23,7 +23,10 @@ public class reception : MonoBehaviour {
 		case 5:
 			color = new Color (255, 0, 255);
 			break;
-		}
+        case 6:
+			color = new Color(0, 255, 255);
+            break;
+        }
 		return color;
 	}
 
@@ -52,9 +55,6 @@ public class reception : MonoBehaviour {
 
         white.transform.parent = gameObject.transform;
         white.transform.localPosition = new Vector3(0, 0, 0);
-
-        //white.transform.position = new Vector3(transform.position.x, transform.position.y, -wave.antenna.GetComponent<antennaData>().frequency - 1);
-
 
         white.GetComponent<SpriteRenderer>().color = frequencyColor(wave.antenna.GetComponent<antennaData>().frequency);
         wave.coloration = white;
@@ -107,15 +107,6 @@ public class reception : MonoBehaviour {
                 waves[i].coloration.GetComponent<SpriteRenderer>().color = color;
 
             }
-
-
-
-            /*foreach (Waves wave in waves)
-            {
-                Color color = wave.coloration.GetComponent<SpriteRenderer>().color;
-                color.a = powerAlpha(wave.antenna.transform.position, wave.antenna.GetComponent<CircleCollider2D>().radius);
-                wave.coloration.GetComponent<SpriteRenderer>().color = color;
-            }*/
 
         }
     }

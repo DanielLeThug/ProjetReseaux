@@ -38,7 +38,7 @@ public class AppStates : MonoBehaviour {
         }  
     }
 
-	private void createAntenna(float x, float y, int frequency, float power, string name) {
+	public void createAntenna(float x, float y, int frequency, float power, string name) {
 		GameObject antenna = Instantiate (Resources.Load ("antenna"), new Vector3(x, 0.5f, y), Quaternion.identity) as GameObject;
         GameObject coloriser = Instantiate(Resources.Load("coloriser"), new Vector3(x, 0.5f, y), Quaternion.identity) as GameObject;
         antenna.GetComponent<antennaData>().set(name, frequency, power, coloriser);
