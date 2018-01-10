@@ -76,7 +76,7 @@ public class AppStates : MonoBehaviour {
 
 	private void createTiles() {
 		float size = 0.2f;
-		int nb = 10;
+		int nb = 20;
 		for (int i = -nb; i < nb; i++)
 			for (int j = -nb; j < nb; j++)
 				createTile (size, i, j);
