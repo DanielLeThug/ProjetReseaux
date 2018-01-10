@@ -15,32 +15,32 @@ public class Selection : MonoBehaviour {
         {
             if (Input.GetKeyDown("up"))
             {
-                SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z + 0.2f);
                 SelectedAntenna.GetComponent<antennaData>().coloriser.transform.position = new Vector3(SelectedAntenna.transform.position.x, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z + 0.2f);
+                SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z + 0.2f);
                 GameObject go = GameObject.FindGameObjectWithTag("map");
                 MapBehaviour map = go.GetComponent<MapBehaviour>();
                 AppStates.GetAntennaLocation(SelectedAntenna, map);
             }
             if (Input.GetKeyDown("down"))
             {
-                SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z - 0.2f);
                 SelectedAntenna.GetComponent<antennaData>().coloriser.transform.position = new Vector3(SelectedAntenna.transform.position.x, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z - 0.2f);
+                SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z - 0.2f);
                 GameObject go = GameObject.FindGameObjectWithTag("map");
                 MapBehaviour map = go.GetComponent<MapBehaviour>();
                 AppStates.GetAntennaLocation(SelectedAntenna, map);
             }
             if (Input.GetKeyDown("left"))
             {
-                SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x - 0.2f, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z);
                 SelectedAntenna.GetComponent<antennaData>().coloriser.transform.position = new Vector3(SelectedAntenna.transform.position.x - 0.2f, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z);
+                SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x - 0.2f, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z);
                 GameObject go = GameObject.FindGameObjectWithTag("map");
                 MapBehaviour map = go.GetComponent<MapBehaviour>();
                 AppStates.GetAntennaLocation(SelectedAntenna, map);
             }
             if (Input.GetKeyDown("right"))
             {
-                SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x + 0.2f, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z);
                 SelectedAntenna.GetComponent<antennaData>().coloriser.transform.position = new Vector3(SelectedAntenna.transform.position.x + 0.2f, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z);
+                SelectedAntenna.transform.position = new Vector3(SelectedAntenna.transform.position.x + 0.2f, SelectedAntenna.transform.position.y, SelectedAntenna.transform.position.z);
                 GameObject go = GameObject.FindGameObjectWithTag("map");
                 MapBehaviour map = go.GetComponent<MapBehaviour>();
                 AppStates.GetAntennaLocation(SelectedAntenna, map);
