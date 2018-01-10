@@ -211,6 +211,7 @@ public class TestMap : MonoBehaviour
 		map.CurrentCamera = Camera.main;
 		map.InputDelegate += UnitySlippyMap.Input.MapInput.BasicTouchAndKeyboard;
 		map.CurrentZoom = 15.0f;
+        map.gameObject.tag = "map";
 		// 9 rue Gentil, Lyon
 		map.CenterWGS84 = new double[2] { 4.83527, 45.76487 };
 		map.UsesLocation = true;

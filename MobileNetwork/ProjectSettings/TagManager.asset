@@ -8,6 +8,7 @@ TagManager:
   - wave
   - test
   - coloriser
+  - map
   layers:
   - Default
   - TransparentFX
